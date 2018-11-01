@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (E:\CodeTest_Self\Github\lua-5.3.5\lua5.3.5\Debug\) contains files shared from another project (lua5.3.5.vcxproj, LuaTest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  luac.c
+  lua.c
+  正在生成代码...
+  lua5.3.5_EXE.vcxproj -> E:\CodeTest_Self\Github\lua-5.3.5\lua5.3.5\Debug\lua5.3.5.exe
+  lua5.3.5_EXE.vcxproj -> E:\CodeTest_Self\Github\lua-5.3.5\lua5.3.5\Debug\lua5.3.5.pdb (Partial PDB)
