@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.cnblogs.com/slysky/p/7890286.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="never">
+<title>[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园</title>
+<meta property="og:description" content="参考原文请看： Lua学习笔记1：Windows7下使用VS2015搭建Lua开发环境(一) Lua学习笔记2：Windows7下使用VS2015搭建Lua开发环境(二) 本篇主要分以下几个部分： 一">
+<link type="text/css" rel="stylesheet" href="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/bundle-sea.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/bundle-sea-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/slysky/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/slysky/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/slysky/wlwmanifest.xml">
+<script src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/f.txt"></script><script src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/pubads_impl_rendering_270.js.下载"></script><script async="" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/analytics.js.下载"></script><script src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'slysky', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<link rel="preload" href="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/f(1).txt" as="script"><script type="text/javascript" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/f(1).txt"></script><script src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/pubads_impl_270.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-30/html/container.html"></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/slysky/">阳光下的蒲公英</a><br>
+		做人当虚怀若谷，浩瀚若广宇，热情若阳光，静默若冬风，沉静若深夜，笑容若四季花开______努力多少只有自己知道
+	</div>
+</div>
+
+</div>
+
+<div id="mytopmenu">
+	
+		<div id="mylinks"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a> &nbsp;
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/slysky/">首页</a> &nbsp;
+<a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a> &nbsp;
+<a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%8B%87%E6%95%A2%E7%9A%84%E5%85%AC%E7%88%B5">联系</a> &nbsp;
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/slysky/rss">订阅</a><a id="blog_nav_rss_image" href="https://www.cnblogs.com/slysky/rss"><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/xml.gif" alt="订阅"></a>&nbsp;
+<a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+</div>
+		<div id="mystats"><div id="blog_stats">
+随笔-218&nbsp;
+评论-139&nbsp;
+文章-1&nbsp;
+<!--trackbacks-0-->
+</div></div>
+	
+</div>
+<div id="centercontent">
+	
+<div id="post_detail">
+<div class="post">
+	<h1 class="postTitle"><a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/slysky/p/7890286.html">[转载]使用VS2015搭建Lua开发环境</a></h1>
+	<div id="cnblogs_post_body" class="blogpost-body"><p>参考原文请看：</p>
+<p><a href="http://www.byjth.com/lua/33.html" target="_blank">Lua学习笔记1：Windows7下使用VS2015搭建Lua开发环境(一)</a></p>
+<p><a href="http://www.byjth.com/lua/34.html" target="_blank">Lua学习笔记2：Windows7下使用VS2015搭建Lua开发环境(二)</a></p>
+<p>本篇主要分以下几个部分：</p>
+<p><strong>一、下载并利用vs2015编译lua源码</strong></p>
+<p><strong>　　编译lua主要编译三个部分，lua链接库，lua解释器，lua编译器</strong></p>
+<p><strong>　　lua链接库就是静态库和动态库，*.lib和*.dll。有了dll就可以直接在工程里开发了。就如示例二中，直接添加了链接，就可以调用lua函数，并正常运行了。</strong></p>
+<p><strong>　　lua.exe是lua的解释器，可以直接运行lua脚本；就是编写了lua文件，比如test.lua，就可以运行，或者在命令行直接输入lua，然后按照lua规则写脚本并直接运行了。</strong></p>
+<p><strong>　　luac.exe是lua的编译工具，生成lua字节码，以便lua代码的更快加载和保护lua代码，同时也能检查lua脚本的错误。</strong></p>
+<p><strong><strong>二、示例：使用vs2015创建c++，调用lua方法</strong></strong></p>
+<p>&nbsp;</p>
+<p><strong><a name="t1"></a>一、下载并编译lua源码</strong></p>
+<p><strong>　&lt;1&gt;、首先进入lua官网，下载最新版本的lua源码。</strong></p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/28d51445018765.png" alt="lua1.png" width="617" height="484" border="0"></p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/52311445018871.png" alt="lua2.png" width="669" height="605" border="0">&nbsp;</p>
+<p>　　这里我将文件解压放到D盘，D:\lua-5.3.1就是该目录。</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/1d271445018937.png" alt="lua3.png" width="530" height="394" border="0">&nbsp;</p>
+<p><strong>&lt;2&gt;、启动VS2015创建新的项目</strong></p>
+<p>&nbsp;</p>
+<p>　　1、选择【文件】—&gt;【新建】—&gt;【项目】，选择Win32里面的Win32控制台应用程序，这里我设置名称为Lua5.3，其他配置参数不变，点击【确定】按钮。</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-4a471445019121.png" alt="1.png" width="680" height="484" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　2、在应用程序设置向导里面，选择类型为【静态库】，然后点击【完成】即可，如图所示。</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/fb5c1445019147.png" alt="2.png" width="624" height="552" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　3、创建好项目后，在【头文件】选项上点击鼠标右键，以此选择【添加】—&gt;【现有项】，然后找到我们的lua目录下的src文件夹，这里我的为D:\lua-5.3.1\src目录。然后我们把src下的所有.h文件添加到头文件。</p>
+<p>　　4、同上操作，我们把除去【lua.c】和【luac.c】以为的所有.c文件都添加到【源文件】。</p>
+<p>　　注意： 需要注意的是 lua.c &nbsp;和luac.c 不能拷贝进去，这两个文件不能编译。如图所示：</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-10fb1445019294.png" alt="3.png" width="680" height="415" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　5、配置项目的属性，在项目的“配置属性” 界面中操作选择【C/C++】—&gt; 【常规】—&gt; 【附加包含目录】，然后输入我们的lua源码路径D:\lua-5.3.1\src。如图所示：</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-09dd1445019170.png" alt="4.png" width="680" height="501" border="0"></p>
+<p align="center">&nbsp;</p>
+<p>　　然后在【C/C++】—&gt; 【高级】—&gt; 【编译为】选择【编译为C代码(/TC)】，最后确定。</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-82661445019204.png" alt="5.png" width="680" height="464" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　配置好上面这些后，然后我们就可以开始编译此项目来生成我们需要的.lib库文件，如图。</p>
+<p>&nbsp;</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-f19c1445019334.png" alt="6.png" width="680" height="480" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>　　这里生成成功了，如果Debug生成失败大家可以使用Release 来生成，生成后的.lib文件我们可以在我们的项目目录里查看，如图所示。</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/9eb91445019353.png" alt="7.png" width="675" height="346" border="0">&nbsp;</p>
+<p><strong>&nbsp;&lt;3&gt;、生成了lib文件，可能已经满足需求了，但是如果需要dll的话，也要生成dll文件。</strong></p>
+<p><strong>　　利用上面已经建好的目录，右键项目-&gt;属性，打开属性界面，选择配置属性-》常规，将配置类型由lib，改成dll。如图所示：</strong></p>
+<p><strong>　　<img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/134633-20171124172459968-1009189613.png" alt=""></strong></p>
+<p>　　点击应用，确定。然后重新生成，就可以生成dll文件。</p>
+<p><strong>&lt;4&gt;、编译lua解释器lua.exe</strong></p>
+<p>　　将lua.c和luac.c添加进项目的源文件。然后将luac.c的main函数注释掉。</p>
+<p>　　同样，将项目的配置类型改为exe，然后右键项目重新生成，不出问题会生成lua5.3.exe，但也可能出错。我遇到的错误是：</p>
+<p>　　<span style="color: #ff0000; font-size: 16px;">MSVCRTD.lib(crtexew.obj) : error LNK2019: 无法解析的外部符号 WinMain</span></p>
+<p><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">　　这个错误是入口函数不对导致的。<br></span></span></p>
+<p><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">　　‘</span></span></p>
+<p><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">　<span style="color: #000080;">　</span></span></span><span style="color: #000080;">原因分析</span></p>
+<p>&nbsp;</p>
+<blockquote>
+<div><span style="color: #000080;">产生这个问题的真正原因是c++语言运行时找不到适当的程序入口函数，一般情况下，如果是windows程序，那么WinMain是入口函数，在VS2010中新建项目为“win32项目”如果是dos控制台程序，那么main是入口函数，在VS2010中新建项目为“win32控制台应用程序”。而如果入口函数指定不当，很显然c++语言运行时找不到配合函数，它就会报告错误。</span></div>
+
+
+
+
+
+
+
+</blockquote>
+<h1><span style="font-size: 16px;">　　解决办法</span></h1>
+<blockquote>
+<h2><span style="font-size: 14px;">如果我们需要的是windows程序</span></h2>
+<div><span style="font-size: 14px; color: #000080;">Step1.菜单中选择 Project-&gt;Properties, 弹出Property Pages窗口</span><br><span style="font-size: 14px; color: #000080;">Step2.在左边栏中依次选择：Configuration Properties-&gt;C/C++-&gt;Preprocessor,然后在右边栏的Preprocessor Definitions对应的项中删除_CONSOLE, 添加_WINDOWS.</span></div>
+<div>
+<div><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/20161116165315371" alt="" width="596" height="425"></div>
+
+
+
+
+
+
+
+
+<span style="color: #000080;">Step3.在左边栏中依次选择：Configuration Properties-&gt;Linker-&gt;System,然后在右边栏的SubSystem对应的项改为Windows(/SUBSYSTEM:WINDOWS)</span></div>
+<div><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/20161116165334555" alt="" width="600" height="427"></div>
+<h2><span style="font-size: 16px;">如果我们需要的是控制台程序</span></h2>
+<div><span style="color: #000080;">Step1.菜单中选择 Project-&gt;Properties, 弹出Property Pages窗口</span><br><span style="color: #000080;">Step2.在左边栏中依次选择：Configuration Properties-&gt;C/C++-&gt;Preprocessor,然后在右边栏的Preprocessor Definitions对应的项中删除_WINDOWS, 添加_CONSOLE.</span><br><span style="color: #000080;">Step3.在左边栏中依次选择：Configuration Properties-&gt;Linker-&gt;System,然后在右边栏的SubSystem对应的项改为CONSOLE(/SUBSYSTEM:CONSOLE)</span></div>
+
+
+
+
+
+
+
+
+</blockquote>
+<p>&nbsp;</p>
+<p><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">　　’</span></span></p>
+<p><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">　　这里，我们需要的是console也就是控制台程序。因此添加_CONSOLE，并将系统改为CONSOLE之后，就可以生成lua.exe了。</span></span></p>
+<p><strong><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">&lt;5&gt;、生成编译器luac.exe</span></span></strong></p>
+<p><span style="color: #ff0000; font-size: 16px;"><span style="color: #000000;">　　将lua.c的main函数注释掉，解开luac.c的main函数，直接重新生成就是luac.exe了。</span></span></p>
+<p><strong>到此为止，我们的lua5.3就编译好了，为方便以后引用，这里我把他拷贝到lua\bin目录下，如图所示。</strong></p>
+<p align="center"><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/134633-20171124173856281-771261030.png" alt="">&nbsp;</p>
+<p><strong>二、示例</strong></p>
+<p><strong>(1)、链接库示例</strong></p>
+<p><strong>　　1、首先我们使用vs2015新建一个Win32控制台应用程序，命名为LuaTest。</strong></p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-9ea71445022416.png" alt="test1.png" width="680" height="574" border="0"></p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/0f701445022423.png" alt="test2.png" width="646" height="565" border="0"></p>
+<p align="center">&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>　　2、配置lua项目头文件默认路径</strong></p>
+<p>&nbsp;</p>
+<p>在项目的“配置属性” 界面中操作选择【C/C++】—&gt; 【常规】—&gt; 【附加包含目录】，然后输入我们的lua源码路径D:\lua-5.3.1\src。如图所示：</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-977c1445022486.png" alt="test3.png" width="680" height="565" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>　　3、为项目添加.lib库引用</strong></p>
+<p>配置项目的属性，在项目的“配置属性” 界面中操作选择【链接器】—&gt; 【常规】—&gt; 【附加库目录】，然后输入我们的lua库文件目录，这个目录为我们上篇结尾处放置的位置。也就是我们的lua5.3的源码目录，D:\lua-5.3.1\。如图所示：</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-24881445022510.png" alt="test4.png" width="680" height="619" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>配置项目的属性，在项目的“配置属性” 界面中操作选择【链接器】—&gt; 【输入】—&gt; 【附加依赖库】位置添加我们所编译的Lua5.3.lib库文件名称，然后确定即可。如图所示：</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-063c1445022536.png" alt="test5.png" width="680" height="473" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>到此我们的lua开发环境算是配置好了，下面我们来测试我们自己搭建的lua环境。</p>
+<p>我们在源代码里创建一个main.lua的文件，如图所示</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/thum-47bf1445022560.png" alt="test6.png" width="680" height="584" border="0">&nbsp;</p>
+<p>创建好后，我们在里面输入打印文本。如图所示：</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/49131445022575.png" alt="test7.png" width="571" height="506" border="0">&nbsp;</p>
+<p>&nbsp;</p>
+<p>然后在LuaTest.cpp主函数里面，我们引用标准输入输出以及lua的头文件，然后编写测试代码，这里是打印main.lua文件里的内容。如图所示：</p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/2c801445022592.png" alt="test8.png" width="631" height="550" border="0"></p>
+<p align="center"><img title="点击查看原图" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/37c71445022686.png" alt="test9.png" width="662" height="600" border="0">&nbsp;</p>
+<p>到此,我们完整的lua环境就算搭建好了啊。</p>
+<p>&lt;2&gt;、命令行测试</p>
+<p>　　将刚才bin目录，配置到我的电脑环境变量path内。敲入cmd命令，将控制台打开，输入lua，将出现</p>
+<p>　　<img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/134633-20171124174228687-1399727655.png" alt=""></p>
+<p>&nbsp;</p>
+<p>　　输入print("hello world!")</p>
+<p>　　控制台会输出hello world!。这标志这lua.exe编译正确。</p>
+<p><strong>&lt;3&gt;、luac.exe</strong></p>
+<p>　　有的时候我们的lua程序不想被别人看到源码，我们就编译成一个.out中间文件，首先创建一个lua程序（新建记事本程序后改后缀名.lua）hello.lua，在里面写print("hello world")然后在控制台切换到luac.exe的目录下输入luac hello.lua,会得到一个luac.out文件，然后在控制台输入lua.exe luac.out就可以输出Hello World了。</p>
+<p>总结工作终于大功告成啦~~~~~</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/slysky/category/812065.html" target="_blank">Lua</a>,<a href="https://www.cnblogs.com/slysky/category/366188.html" target="_blank">visual studio</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(7890286,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;6cbb50fa-7464-df11-ba8f-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/slysky/" target="_blank"><img src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/20150813200627.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/slysky/">勇敢的公爵</a><br>
+            <a href="http://home.cnblogs.com/u/slysky/followees">关注 - 14</a><br>
+            <a href="http://home.cnblogs.com/u/slysky/followers">粉丝 - 274</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;6cbb50fa-7464-df11-ba8f-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(7890286,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(7890286,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/slysky/p/7373365.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/slysky/p/7373365.html" title="发布于2017-08-16 14:54">Lua C Api</a><br><a href="https://www.cnblogs.com/slysky/p/7890738.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/slysky/p/7890738.html" title="发布于2017-11-24 15:13">[转载]Lua和C++交互详细总结</a><br></div>
+</div>
+
+
+	<div class="postDesc">posted on <span id="post-date">2017-11-24 13:59</span> <a href="https://www.cnblogs.com/slysky/">勇敢的公爵</a> 阅读(<span id="post_view_count">3425</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=7890286" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/slysky/p/7890286.html#" onclick="AddToWz(7890286);return false;">收藏</a></div>
+</div>
+<script type="text/javascript">var allowComments=true,cb_blogId=98241,cb_entryId=7890286,cb_blogApp=currentBlogApp,cb_blogUserGuid='6cbb50fa-7464-df11-ba8f-001cf0cd104b',cb_entryCreatedDate='2017/11/24 13:59:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/slysky/p/7890286.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/slysky/p/7890286.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="http://clickc.admaster.com.cn/c/a116493,b2949399,c1705,i0,m101,8a1,8b3,h" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-华为云&#39;)">【推荐】华为云11.11普惠季 血拼风暴 一促即发</a><br><a href="https://www.grapecity.com.cn/developer/spreadjs?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS&amp;utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-SpreadJS&#39;)">【工具】SpreadJS纯前端表格控件，可嵌入应用开发的在线Excel</a><br><a href="https://cloud.tencent.com/act/domainsales?fromSource=gwzcw.1351351.1351351.1351351" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-域名&#39;)">【推荐】腾讯云新注册用户域名抢购1元起</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/pro/redis?fromSource=gwzcw.1559146.1559146.1559146" target="_blank"><img width="300" height="250" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/24442-20181023123922818-1967472495.jpg" alt="腾讯云1023" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>系统推荐博文</b>:<br>·  <a href="https://www.cnblogs.com/kekeoutlook/p/7750787.html" target="_blank" onclick="clickRecomItmem(7750787,&#39;VxpcU62RdBe6Jco3tbKAhQxmpONs5Fd0fgJlwr+sAgcBbWoB3NVu08aVRYL4kS0JlQukN20eK63qPMq9PRuc4leOJHrA0Rnx4o9fuLGA6vqN+VOTAlKt99nG4lpVO5++Cbo6omZ5ZeXlztY=&#39;)">Qt5.7 + VS2015 环境搭建</a><br>·  <a href="https://www.cnblogs.com/w-wfy/p/7763042.html" target="_blank" onclick="clickRecomItmem(7763042,&#39;Jet1xt2ddR1+Uc6Uj0tPx8D4isA+CAzZYSAP1cXGDLjICcv80gR5FTyssAN96TNsJNoI9FnehyO6BCIwOMFQKd0cqtmUH28DGyLBOPTCYgMSfVEJZmOMy/6qQwYGaZRkLTZSfliTsgLQO+M=&#39;)">lua----------------使用VS2015搭建lua开发环境的一些侥幸成功经验，</a><br>·  <a href="https://www.cnblogs.com/fmcn/p/6041973.html" target="_blank" onclick="clickRecomItmem(6041973,&#39;/T6L6sXwWYcTLr3EAZQCz69fdQHt1OvowwjU/fbGFH1CSdcGN00WkCR+WupcxpxphPhTCi0uYZbRuMEB0w73Wid4e8CjWlNnflyThyyQY455HP/Gh3VSZ62QAQh15t2OV5miM9Ka0bG9j64=&#39;)">xamarin学习之路 一、vs2015 环境搭建</a><br>·  <a href="https://www.cnblogs.com/stulzq/p/5823687.html" target="_blank" onclick="clickRecomItmem(5823687,&#39;HMMslczArmz+Ew16C06VChALv1zQzi0f3ZjO89vXFLybslZXp7prIy40nMR2lhi2qaKaq6c5jzw+uVGYomNwIzgHEXMysaZ1p+k8WWMVUzb6+HOkA+2r/69OzLZOgsM84CrSgZaeZu2dbY0=&#39;)">VS2015 搭建 Asp.net core 开发环境</a><br>·  <a href="https://www.cnblogs.com/SignX/p/6619003.html" target="_blank" onclick="clickRecomItmem(6619003,&#39;QOnB5JS9HFh0fJAmtuYeI7NLzgFXE13ytQuiZYKojYdIXuqX3XdzlgR5q8mPK4Fdyk0bUtYDEjC4zxSWFLeG53efUg26W098AEvf59vMgpIS4bqspArVwKLRfSRMUlgvmsBOePkFw7gvv38=&#39;)">【基础】-设置VS2015开发环境</a><br></div></div>
+<script async="async" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/gpt.js.下载"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CL6Dwdf5st4CFYMaKgodnaoL4A">
+    <script>
+    if (new Date() >= new Date(2018, 9, 13)) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="https://kb.cnblogs.com/page/611018/" target="_blank">程序员：用代码改变世界</a><br> ·  <a href="https://kb.cnblogs.com/page/609730/" target="_blank">阿里云的这群疯子</a><br> ·  <a href="https://kb.cnblogs.com/page/606682/" target="_blank">为什么说 Java 程序员必须掌握 Spring Boot ？</a><br> ·  <a href="https://kb.cnblogs.com/page/606645/" target="_blank">在学习中，有一个比掌握知识更重要的能力</a><br> ·  <a href="https://kb.cnblogs.com/page/603663/" target="_blank">如何招到一个靠谱的程序员</a><br></div>» <a href="https://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"><b>历史上的今天:</b><br>2016-11-24 <a href="https://www.cnblogs.com/slysky/p/6098981.html">Lua截取utf-8编码的中英文混合字符串</a><br>2016-11-24 <a href="https://www.cnblogs.com/slysky/p/6098763.html">字符编码</a><br>2011-11-24 <a href="https://www.cnblogs.com/slysky/archive/2011/11/24/2262166.html">Surf算法</a><br></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+</div>
+<div id="leftcontent">
+	
+		<div id="leftcontentcontainer">
+			
+<!--done-->
+<div class="newsItem">
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/slysky/">勇敢的公爵</a><br>园龄：<a href="https://home.cnblogs.com/u/slysky/" title="入园时间：2010-05-21">8年5个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/slysky/followers/">274</a><br>关注：<a href="https://home.cnblogs.com/u/slysky/followees/">14</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;6cbb50fa-7464-df11-ba8f-001cf0cd104b&#39;)">+加关注</a></div><script>getFollowStatus('6cbb50fa-7464-df11-ba8f-001cf0cd104b')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/10/01&#39;);return false;">&lt;</a></td><td align="center">2018年11月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/12/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td class="CalTodayDay" align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td class="CalWeekendDay" align="center">10</td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script><br>
+			<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/slysky/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/slysky/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/slysky/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/slysky/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/slysky/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="https://www.cnblogs.com/slysky/tag/OpenGL%20%E6%95%99%E7%A8%8B/">OpenGL 教程</a>(2)</li><li><a href="https://www.cnblogs.com/slysky/tag/setActiveEnable/">setActiveEnable</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/unity%E5%90%88%E5%B9%B6Mesh/">unity合并Mesh</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/unity%E5%90%88%E5%B9%B6%E6%9D%90%E8%B4%A8%E8%B4%B4%E5%9B%BE/">unity合并材质贴图</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/unity%E6%8D%A2%E8%A3%85/">unity换装</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/unity%E7%BD%91%E6%A0%BC%E5%90%88%E5%B9%B6/">unity网格合并</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/XCode%20Cocos2dx%202.2.6/">XCode Cocos2dx 2.2.6</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/%E7%BB%9D%E5%91%BD%E6%B5%B7%E6%8B%94/">绝命海拔</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/%E6%9C%9F%E6%9D%83%E4%BB%B7%E6%A0%BC%E4%B8%8A%E9%99%90%E4%B8%8B%E9%99%90/">期权价格上限下限</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/%E7%94%9F%E6%88%90%E4%BA%8B%E4%BB%B6/">生成事件</a>(1)</li><li><a href="https://www.cnblogs.com/slysky/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+		<h3 class="catListTitle">随笔分类</h3>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_0" class="listitem" href="https://www.cnblogs.com/slysky/category/619761.html">Android(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_1" class="listitem" href="https://www.cnblogs.com/slysky/category/558395.html">cocos2d-x(21)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_2" class="listitem" href="https://www.cnblogs.com/slysky/category/473316.html">inside c++ object model(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_3" class="listitem" href="https://www.cnblogs.com/slysky/category/812065.html">Lua(21)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_4" class="listitem" href="https://www.cnblogs.com/slysky/category/325674.html">OpenCV_VC++(12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_5" class="listitem" href="https://www.cnblogs.com/slysky/category/325700.html">OpenCV第三章(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_6" class="listitem" href="https://www.cnblogs.com/slysky/category/325847.html">OpenCV第四章(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_7" class="listitem" href="https://www.cnblogs.com/slysky/category/938627.html">OpenGL(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_8" class="listitem" href="https://www.cnblogs.com/slysky/category/1133778.html">python(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_9" class="listitem" href="https://www.cnblogs.com/slysky/category/325676.html">Sift算法</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_10" class="listitem" href="https://www.cnblogs.com/slysky/category/657104.html">unity3D(34)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_11" class="listitem" href="https://www.cnblogs.com/slysky/category/366188.html">visual studio(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_12" class="listitem" href="https://www.cnblogs.com/slysky/category/849573.html">程序员必看(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_13" class="listitem" href="https://www.cnblogs.com/slysky/category/339991.html">程序员面试宝典_手记(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_14" class="listitem" href="https://www.cnblogs.com/slysky/category/892959.html">工具类(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_15" class="listitem" href="https://www.cnblogs.com/slysky/category/338771.html">面试题(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_16" class="listitem" href="https://www.cnblogs.com/slysky/category/338772.html">生活琐事(72)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_17" class="listitem" href="https://www.cnblogs.com/slysky/category/381071.html">书籍(30)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_18" class="listitem" href="https://www.cnblogs.com/slysky/category/377107.html">数字图像疑难解析(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_19" class="listitem" href="https://www.cnblogs.com/slysky/category/383202.html">图像处理库(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_20" class="listitem" href="https://www.cnblogs.com/slysky/category/325675.html">图像处理算法(16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_21" class="listitem" href="https://www.cnblogs.com/slysky/category/602983.html">游戏小tips(3)</a></li>
+			
+				</ul>
+			
+	
+		<h3 class="catListTitle">随笔档案</h3>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_0" class="listitem" href="https://www.cnblogs.com/slysky/archive/2018/10.html">2018年10月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_1" class="listitem" href="https://www.cnblogs.com/slysky/archive/2018/09.html">2018年9月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_2" class="listitem" href="https://www.cnblogs.com/slysky/archive/2018/08.html">2018年8月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_3" class="listitem" href="https://www.cnblogs.com/slysky/archive/2018/07.html">2018年7月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_4" class="listitem" href="https://www.cnblogs.com/slysky/archive/2018/04.html">2018年4月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_5" class="listitem" href="https://www.cnblogs.com/slysky/archive/2018/01.html">2018年1月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_6" class="listitem" href="https://www.cnblogs.com/slysky/archive/2017/12.html">2017年12月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_7" class="listitem" href="https://www.cnblogs.com/slysky/archive/2017/11.html">2017年11月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_8" class="listitem" href="https://www.cnblogs.com/slysky/archive/2017/08.html">2017年8月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_9" class="listitem" href="https://www.cnblogs.com/slysky/archive/2017/01.html">2017年1月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_10" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/11.html">2016年11月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_11" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/10.html">2016年10月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_12" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/08.html">2016年8月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_13" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/07.html">2016年7月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_14" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/06.html">2016年6月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_15" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/05.html">2016年5月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_16" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/04.html">2016年4月 (14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_17" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/03.html">2016年3月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_18" class="listitem" href="https://www.cnblogs.com/slysky/archive/2016/01.html">2016年1月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_19" class="listitem" href="https://www.cnblogs.com/slysky/archive/2015/12.html">2015年12月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_20" class="listitem" href="https://www.cnblogs.com/slysky/archive/2015/06.html">2015年6月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_21" class="listitem" href="https://www.cnblogs.com/slysky/archive/2015/03.html">2015年3月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_22" class="listitem" href="https://www.cnblogs.com/slysky/archive/2015/02.html">2015年2月 (16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_23" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/11.html">2014年11月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_24" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/10.html">2014年10月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_25" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/09.html">2014年9月 (11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_26" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/08.html">2014年8月 (11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_27" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/07.html">2014年7月 (9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_28" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/06.html">2014年6月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_29" class="listitem" href="https://www.cnblogs.com/slysky/archive/2014/05.html">2014年5月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_30" class="listitem" href="https://www.cnblogs.com/slysky/archive/2013/04.html">2013年4月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_31" class="listitem" href="https://www.cnblogs.com/slysky/archive/2013/03.html">2013年3月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_32" class="listitem" href="https://www.cnblogs.com/slysky/archive/2013/01.html">2013年1月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_33" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/12.html">2012年12月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_34" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/11.html">2012年11月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_35" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/10.html">2012年10月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_36" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/09.html">2012年9月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_37" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/07.html">2012年7月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_38" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/06.html">2012年6月 (12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_39" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/05.html">2012年5月 (13)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_40" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/04.html">2012年4月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_41" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/03.html">2012年3月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_42" class="listitem" href="https://www.cnblogs.com/slysky/archive/2012/01.html">2012年1月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_43" class="listitem" href="https://www.cnblogs.com/slysky/archive/2011/12.html">2011年12月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_44" class="listitem" href="https://www.cnblogs.com/slysky/archive/2011/11.html">2011年11月 (15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_45" class="listitem" href="https://www.cnblogs.com/slysky/archive/2011/10.html">2011年10月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_46" class="listitem" href="https://www.cnblogs.com/slysky/archive/2011/09.html">2011年9月 (8)</a></li>
+			
+				</ul>
+			
+	
+		<h3 class="catListTitle">相册</h3>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_2_Link_0" class="listitem" href="https://www.cnblogs.com/slysky/gallery/325854.html" rel="nofollow">OpenCV(1)</a></li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<h3>积分与排名</h3>
+<ul>
+	<li>
+		积分 -
+		194953
+	</li><li>
+		排名 -
+		1505
+	</li>
+</ul>
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/slysky/p/3949027.html#4098518">1. Re:二维矩形装箱问题</a></li>
+        <li class="recent_comment_body">好多变量都没有定义</li>
+        <li class="recent_comment_author">--才子美玉</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/slysky/p/3949027.html#4056727">2. Re:二维矩形装箱问题</a></li>
+        <li class="recent_comment_body">@Mintcoder从百度文库随便找了一篇，链接已经添加了。论文内容是没错的。...</li>
+        <li class="recent_comment_author">--勇敢的公爵</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/slysky/p/3949027.html#4056723">3. Re:二维矩形装箱问题</a></li>
+        <li class="recent_comment_body">@Mintcoder我就去他大爷了，真的是太特么的过分了。看来有必要去翻老旧硬盘上传一下论文了...</li>
+        <li class="recent_comment_author">--勇敢的公爵</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/slysky/p/3949027.html#4052215">4. Re:二维矩形装箱问题</a></li>
+        <li class="recent_comment_body">@勇敢的公爵楼主，论文链现在已经指向拉斯维加斯赌城了。。。。。...</li>
+        <li class="recent_comment_author">--Mintcoder</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/slysky/archive/2012/12/04/2802149.html#4005901">5. Re:数据库设计中，动态添加字段</a></li>
+        <li class="recent_comment_body">没看懂</li>
+        <li class="recent_comment_author">--老孙sunjiyun</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/14/2212227.html">1. OpenCV_轮廓的查找、表达、绘制、特性及匹配(47128)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/16/2214015.html">2. 图像的膨胀与腐蚀、细化(41501)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/11/25/2262899.html">3. 卷积和积分运算(36246)</a></li><li><a href="https://www.cnblogs.com/slysky/p/4081307.html">4. 3D中的OBJ文件格式详解(21516)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/13/2210745.html">5. OpenCV_颜色直方图的计算、显示、处理、对比及反向投影(21473)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/16/2214015.html">1. 图像的膨胀与腐蚀、细化(17)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/11/08/2241247.html">2. KD Tree(16)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/30/2229530.html">3. sift算法研究_无匹配(8)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/11/25/2262899.html">4. 卷积和积分运算(8)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2012/05/27/2520511.html">5. 在windows下编译d-nets(6)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/16/2214015.html">1. 图像的膨胀与腐蚀、细化(11)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/14/2212227.html">2. OpenCV_轮廓的查找、表达、绘制、特性及匹配(7)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/13/2210745.html">3. OpenCV_颜色直方图的计算、显示、处理、对比及反向投影(5)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/11/25/2262899.html">4. 卷积和积分运算(5)</a></li><li><a href="https://www.cnblogs.com/slysky/archive/2011/10/30/2229530.html">5. sift算法研究_无匹配(5)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script></div>
+	
+</div>
+
+<!--done-->
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com/">博客园</a>	模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a>
+	Copyright ©2018 勇敢的公爵
+</div>
+
+
+
+
+
+<iframe id="google_osd_static_frame_5925829687860" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./[转载]使用VS2015搭建Lua开发环境 - 勇敢的公爵 - 博客园_files/saved_resource(1).html"></iframe></body></html>
